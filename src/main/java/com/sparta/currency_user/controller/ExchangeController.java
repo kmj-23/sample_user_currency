@@ -32,8 +32,8 @@ public class ExchangeController {
         return new ResponseEntity<>(exchangeResponseDto, HttpStatus.OK);
     }
 
-//    @PutMapping("/{userId}") *
-//    public ResponseEntity<ExchangeResponseDto> cancelExchange(@PathVariable Long exchangeId) {
+//    @PutMapping
+//    public ResponseEntity<ExchangeResponseDto> cancelExchange(@RequestParam Long exchangeId) {
 //        ExchangeResponseDto exchangeResponseDto = exchangeService.cancelExchange(exchangeId);
 //        return new ResponseEntity<>()
 //    }

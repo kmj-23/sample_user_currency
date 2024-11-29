@@ -34,10 +34,12 @@ public class Exchange {
 
 
 
-    public Exchange(BigDecimal amountInKrw, BigDecimal amountAfterExchange, String status) {
+    public Exchange(BigDecimal amountInKrw, BigDecimal amountAfterExchange, String status, Currency currency, User user) {
         this.amountInKrw = amountInKrw;
         this.amountAfterExchange = amountAfterExchange;
         this.status = status;
+        this.currency = currency;
+        this.user = user;
     }
 
     public Exchange() {}

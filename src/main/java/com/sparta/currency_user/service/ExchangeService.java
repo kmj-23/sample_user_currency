@@ -29,13 +29,13 @@ public class ExchangeService {
             String currencyName
     ) {
 
-        userRepository.findUserByIdOrElseThrow(userId);
+        User user = userRepository.findUserByIdOrElseThrow(userId);
 
         Currency currency = currencyRepository.findByCurrencyName(currencyName);
 
         BigDecimal amountAfterExchange = amountInKrw.divide(currency.getExchangeRate(), 2, RoundingMode.UP);
 
-        Exchange exchange = new Exchange(amountInKrw, amountAfterExchange,"NORMAL"); // 상태를 나타낼때는 주로 대문자(?) EX. DELIVEVERED, ON_PROCESS..etc
+        Exchange exchange = new Exchange(amountInKrw, amountAfterExchange,"NORMAL", currency, user); // 상태를 나타낼때는 주로 대문자(?) EX. DELIVEVERED, ON_PROCESS..etc
 
         Exchange newExchange = exchangeRepository.save(exchange);
 
