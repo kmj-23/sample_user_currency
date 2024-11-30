@@ -23,4 +23,9 @@ public class ExchangeResponseDto {
         this.status = status;
         this.currencyName = currencyName;
     }
+
+    public ExchangeResponseDto(Long id, String status){
+        this.id = id;
+        this.status = status;
+    }
 }

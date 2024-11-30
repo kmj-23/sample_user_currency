@@ -2,8 +2,6 @@ package com.sparta.currency_user.controller;
 
 import com.sparta.currency_user.dto.ExchangeRequestDto;
 import com.sparta.currency_user.dto.ExchangeResponseDto;
-import com.sparta.currency_user.entity.Currency;
-import com.sparta.currency_user.entity.Exchange;
 import com.sparta.currency_user.service.ExchangeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -32,9 +30,9 @@ public class ExchangeController {
         return new ResponseEntity<>(exchangeResponseDto, HttpStatus.OK);
     }
 
-//    @PutMapping
-//    public ResponseEntity<ExchangeResponseDto> cancelExchange(@RequestParam Long exchangeId) {
-//        ExchangeResponseDto exchangeResponseDto = exchangeService.cancelExchange(exchangeId);
-//        return new ResponseEntity<>()
-//    }
+    @PatchMapping("/{id}")
+    public ResponseEntity<String> updateExchange(@PathVariable Long id) {
+        exchangeService.updateExchange(id);
+        return ResponseEntity.ok().body("정상적으로 삭제되었습니다.");
+    }
 }
