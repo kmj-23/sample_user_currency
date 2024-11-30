@@ -1,6 +1,7 @@
 package com.sparta.currency_user.controller;
 
-import com.sparta.currency_user.dto.ExchangeRequestDto;
+import com.sparta.currency_user.dto
+        .ExchangeRequestDto;
 import com.sparta.currency_user.dto.ExchangeResponseDto;
 import com.sparta.currency_user.service.ExchangeService;
 import lombok.RequiredArgsConstructor;
