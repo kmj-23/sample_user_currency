@@ -20,6 +20,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ExchangeService {
+
     private final ExchangeRepository exchangeRepository;
     private final CurrencyRepository currencyRepository;
     private final UserRepository userRepository;
@@ -68,6 +69,13 @@ public class ExchangeService {
         Exchange saveUpdateExchange = exchangeRepository.save(updateExchange);
 
         return new ExchangeResponseDto(saveUpdateExchange.getId() ,saveUpdateExchange.getStatus());
+    }
+
+    public void deleteUser(Long id) {
+        Exchange deleteUser = exchangeRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "존재하지 않는 아이디 입니다."));
+
+        exchangeRepository.delete(deleteUser);
     }
 }
 

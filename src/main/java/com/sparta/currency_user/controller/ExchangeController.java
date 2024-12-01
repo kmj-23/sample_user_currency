@@ -36,4 +36,10 @@ public class ExchangeController {
         exchangeService.updateExchange(id);
         return ResponseEntity.ok().body("정상적으로 삭제되었습니다.");
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteExchange(@PathVariable Long id){
+        exchangeService.deleteUser(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
