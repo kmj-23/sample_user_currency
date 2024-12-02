@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 @Entity
 @Getter
 @Table(name = "currency")
-public class Currency {
+public class Currency extends TimeBaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

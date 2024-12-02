@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     default User findUserByIdOrElseThrow(Long userId){
         return findById(userId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
     }
+
+    User findByEmail(String email);
 }

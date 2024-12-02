@@ -3,6 +3,7 @@ package com.sparta.currency_user.controller;
 import com.sparta.currency_user.dto.CurrencyRequestDto;
 import com.sparta.currency_user.dto.CurrencyResponseDto;
 import com.sparta.currency_user.service.CurrencyService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class CurrencyController {
     }
 
     @PostMapping
-    public ResponseEntity<CurrencyResponseDto> createCurrency(@RequestBody CurrencyRequestDto currencyRequestDto) {
+    public ResponseEntity<CurrencyResponseDto> createCurrency(@Valid @RequestBody CurrencyRequestDto currencyRequestDto) {
         return ResponseEntity.ok().body(currencyService.save(currencyRequestDto));
     }
 }

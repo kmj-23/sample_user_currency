@@ -1,8 +1,10 @@
 package com.sparta.currency_user.dto;
 
 import lombok.Getter;
+import org.springframework.cglib.core.Local;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 
 @Getter
@@ -16,12 +18,18 @@ public class ExchangeResponseDto {
 
     private String currencyName;
 
+    private LocalDateTime createdAt;
 
-    public ExchangeResponseDto(Long id, BigDecimal amountAfterExchange, String status, String currencyName) {
+    private LocalDateTime modifiedAt;
+
+
+    public ExchangeResponseDto(Long id, BigDecimal amountAfterExchange, String status, String currencyName, LocalDateTime createdAt, LocalDateTime modifiedAt) {
         this.id = id;
         this.amountAfterExchange = amountAfterExchange;
         this.status = status;
         this.currencyName = currencyName;
+        this.createdAt = createdAt;
+        this.modifiedAt =modifiedAt;
     }
 
     public ExchangeResponseDto(Long id, String status){
