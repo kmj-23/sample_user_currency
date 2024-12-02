@@ -75,6 +75,7 @@ public class ExchangeService {
         return new ExchangeResponseDto(saveUpdateExchange.getId() ,saveUpdateExchange.getStatus());
     }
 
+    @Transactional // db변경이 일어나는 경우 꼭써줘
     public void deleteUser(Long id) {
         Exchange deleteUser = exchangeRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "존재하지 않는 아이디 입니다."));
